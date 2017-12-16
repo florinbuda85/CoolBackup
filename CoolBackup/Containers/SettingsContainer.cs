@@ -6,7 +6,9 @@ namespace CoolBackup.Containers
     public class SettingsContainer : ViewModelBase
     {
         #region Property DefaultBackupDirectory
+
         private String _defaultBackupDirectory;
+
         public String DefaultBackupDirectory
         {
             get
@@ -19,10 +21,13 @@ namespace CoolBackup.Containers
                 RaisePropertyChanged("DefaultBackupDirectory");
             }
         }
-        #endregion
+
+        #endregion Property DefaultBackupDirectory
 
         #region Property DefaultNameFormat
+
         private String _defaultNameFormat;
+
         public String DefaultNameFormat
         {
             get
@@ -35,39 +40,26 @@ namespace CoolBackup.Containers
                 RaisePropertyChanged("DefaultNameFormat");
             }
         }
-        #endregion
 
-        #region Property ZipCommand
-        private String _zipCommand;
-        public String ZipCommand
+        #endregion Property DefaultNameFormat
+
+        #region Property SevenZipLocation
+
+        private String _sevenZipLocation;
+
+        public String SevenZipLocation
         {
             get
             {
-                return _zipCommand;
+                return _sevenZipLocation;
             }
             set
             {
-                _zipCommand = value;
-                RaisePropertyChanged("ZipCommand");
+                _sevenZipLocation = value;
+                RaisePropertyChanged("SevenZipLocation");
             }
         }
-        #endregion
 
-        #region Property TemporaryDirectory
-        private String _temporaryDirectory;
-        public String TemporaryDirectory
-        {
-            get
-            {
-                return _temporaryDirectory;
-            }
-            set
-            {
-                _temporaryDirectory = value;
-                RaisePropertyChanged("TemporaryDirectory");
-            }
-        }
-        #endregion
-
+        #endregion Property SevenZipLocation
     }
 }

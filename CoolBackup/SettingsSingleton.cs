@@ -1,22 +1,20 @@
 ﻿using CoolBackup.Containers;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CoolBackup
 {
     public class SettingsSingleton
     {
+        private const String FILE_NAME = "settings.json";
 
-        const String FILE_NAME = "settings.json";
+        private SettingsSingleton()
+        {
+        }
 
-
-        private SettingsSingleton() { }
         private static SettingsSingleton _instance = null;
         private SettingsContainer container;
 
@@ -36,13 +34,12 @@ namespace CoolBackup
                 string jsonContent = File.ReadAllText(FILE_NAME);
                 container = Newtonsoft.Json.JsonConvert.DeserializeObject<SettingsContainer>(jsonContent);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 container = new SettingsContainer();
             }
             return container;
         }
-
 
         public void saveContainer()
         {

@@ -3,7 +3,6 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MahApps.Metro;
 using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,7 +11,9 @@ namespace CoolBackup.ViewModel
     public class SettingsViewModel : ViewModelBase
     {
         #region Property MySettingsContainer
+
         private SettingsContainer _mySettingsContainer;
+
         public SettingsContainer MySettingsContainer
         {
             get
@@ -31,10 +32,13 @@ namespace CoolBackup.ViewModel
                 RaisePropertyChanged("MySettingsContainer");
             }
         }
-        #endregion
+
+        #endregion Property MySettingsContainer
 
         #region ICommand DoChooseBackupDirectory
+
         private ICommand _doChooseBackupDirectory;
+
         public ICommand DoChooseBackupDirectory
         {
             get
@@ -46,6 +50,7 @@ namespace CoolBackup.ViewModel
                 return _doChooseBackupDirectory;
             }
         }
+
         private void DoChooseBackupDirectoryExecute()
         {
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
@@ -67,10 +72,13 @@ namespace CoolBackup.ViewModel
             }
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
         }
-        #endregion
+
+        #endregion ICommand DoChooseBackupDirectory
 
         #region ICommand DoChooseTemporaryDirectory
+
         private ICommand _doChooseTemporaryDirectory;
+
         public ICommand DoChooseTemporaryDirectory
         {
             get
@@ -82,6 +90,7 @@ namespace CoolBackup.ViewModel
                 return _doChooseTemporaryDirectory;
             }
         }
+
         private void DoChooseTemporaryDirectoryExecute()
         {
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
@@ -93,7 +102,6 @@ namespace CoolBackup.ViewModel
 
                     if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                     {
-                        this.MySettingsContainer.TemporaryDirectory = fbd.SelectedPath;
                     }
                 }
             }
@@ -103,10 +111,13 @@ namespace CoolBackup.ViewModel
             }
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
         }
-        #endregion
+
+        #endregion ICommand DoChooseTemporaryDirectory
 
         #region ICommand DoSaveSettings
+
         private ICommand _doSaveSettings;
+
         public ICommand DoSaveSettings
         {
             get
@@ -118,6 +129,7 @@ namespace CoolBackup.ViewModel
                 return _doSaveSettings;
             }
         }
+
         private void DoSaveSettingsExecute()
         {
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
@@ -136,7 +148,6 @@ namespace CoolBackup.ViewModel
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
         }
 
-
         //TODO: move this to UI helper
         private void changeTheme(string newTheme)
         {
@@ -145,7 +156,6 @@ namespace CoolBackup.ViewModel
             ThemeManager.ChangeAppStyle(Application.Current, accent, theme.Item1);
         }
 
-        #endregion
-
+        #endregion ICommand DoSaveSettings
     }
 }

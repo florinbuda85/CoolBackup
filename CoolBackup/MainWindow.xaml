@@ -6,11 +6,21 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:CoolBackup"
         mc:Ignorable="d"
-        ResizeMode="CanResizeWithGrip"
-        GlowBrush="{DynamicResource AccentColorBrush}" 
+        GlowBrush="{DynamicResource AccentColorBrush}"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="221" Width="740">
     <Grid>
-        <Button Content="Open Settings" Command="{Binding DoOpenSettingsWindow}" Height="17" VerticalAlignment="Top" Margin="29,28,386,0"/>
+        <Button Content="Open Settings" Command="{Binding DoOpenSettingsWindow}" Height="17" VerticalAlignment="Top" Margin="10,132,621,0" />
+        <Label Content="From:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" />
+        <Button Content="Button" HorizontalAlignment="Left" Margin="626,130,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.48,-0.296" Command="{Binding DoBackup}" />
+
+        <TextBox Controls:TextBoxHelper.ButtonCommand="{Binding SelectFileOrFolder, Mode=OneWay}" Text="{Binding BackupTarget, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{DynamicResource MetroButtonTextBox}" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="522">
+            <Controls:TextBoxHelper.ButtonContent>
+                <TextBlock FontFamily="Wingdings 3" Foreground="#FF0046FF">q</TextBlock>
+            </Controls:TextBoxHelper.ButtonContent>
+        </TextBox>
+        <Label Content="To:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,88,0,0" TextWrapping="Wrap" Text="{Binding DestinationZip}" VerticalAlignment="Top" Width="700" />
     </Grid>
 </Controls:MetroWindow>

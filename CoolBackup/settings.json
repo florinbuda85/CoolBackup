@@ -1,0 +1,6 @@
+﻿{
+  "DefaultBackupDirectory": "\\\\rofs02\\MIS\\zbackup_FlorinBuda\\",
+  "DefaultNameFormat": "{Name}\\{Name}_YYYY-MM-DD_HH-mm-ss",
+  "SevenZipLocation": "C:\\Program Files\\7-Zip\\",
+  "IsInDesignMode": false
+}
